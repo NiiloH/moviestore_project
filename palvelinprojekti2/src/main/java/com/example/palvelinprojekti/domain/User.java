@@ -22,6 +22,8 @@ public class User {
     public User() {
     }
 
+    //MAKING ROLE FOR USER ATTRIBUTES
+
     public User(String username, String passwordHash, String role) {
         super();
         this.username = username;

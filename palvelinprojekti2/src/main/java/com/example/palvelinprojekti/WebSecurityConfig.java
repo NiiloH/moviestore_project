@@ -15,6 +15,10 @@ import com.example.palvelinprojekti.web.UserDetailServiceImpl;
 
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
+
+
+
+
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableWebSecurity

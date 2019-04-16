@@ -36,7 +36,7 @@ public class Item {
 
     }
 
-    // Creating the attributes
+    // Creating the attributes for Item
 
     public Item(String title,
                 String author,
@@ -53,6 +53,10 @@ public class Item {
         this.type = type;
         this.category = category;
     }
+
+    //ITEM SETTERS AND GETTERS
+
+
 
     public long getId() {
         return id;

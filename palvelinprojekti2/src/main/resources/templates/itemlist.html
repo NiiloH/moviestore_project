@@ -32,6 +32,9 @@
 
         <th sec:authorize="hasAuthority('ADMIN')">Delete movie</th>
         <th>Edit movie</th>
+
+
+
     </tr>
    <tr th:each = "Item : ${items}">
        <td th:text="${Item.title}"></td>

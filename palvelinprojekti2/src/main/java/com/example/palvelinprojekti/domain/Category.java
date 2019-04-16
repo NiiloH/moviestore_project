@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+//ID FOR CATEGORY REPOSITORY
+
+
+
 @Entity
 public class Category {
     @Id
@@ -25,6 +29,9 @@ public class Category {
         super();
         this.name = name;
     }
+
+    //SETTERS & GETTERS FOR CATEGORY
+
 
     public long getCategoryId() {
         return categoryId;
@@ -49,6 +56,9 @@ public class Category {
     public void setItems(List<Item> items) {
         this.items = items;
     }
+
+
+    //TO STRING FOR CATEGORY
 
     @Override
     public String toString() {
