@@ -1,0 +1,59 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    <titleItem></titleItem>
+</head>
+<body>
+<h1>Movie Store</h1>
+<div class="col-md-4">
+    <h3 th:inline="text">Welcome to the Movie Store, [[${#httpServletRequest.remoteUser}]]</h3>
+</div>
+<div class="col-md-4" style="padding:20px 0">
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out" class="btn btn-danger"/>
+    </form>
+</div>
+
+
+<table class="table table-striped">
+    <tbody>
+    <tr>
+        <th>Movie title</th>
+        <th>Author</th>
+        <th>Isbn</th>
+        <th>Year</th>
+        <th>Price</th>
+        <th>Type</th>
+        <th>Category</th>
+
+        <th sec:authorize="hasAuthority('ADMIN')">Delete movie</th>
+        <th>Edit movie</th>
+    </tr>
+   <tr th:each = "Item : ${items}">
+       <td th:text="${Item.title}"></td>
+        <td th:text="${Item.author}"></td>
+       <td th:text="${Item.isbn}"></td>
+      <td th:text="${Item.year}"></td>
+       <td th:text="${Item.price}"></td>
+       <td th:text="${Item.type}"></td>
+       <td th:text="${Item.category.name}"></td>
+
+       <td sec:authorize="hasAuthority('ADMIN')">
+           <a th:href="@{delete/{id}(id=${Item.id})}" class="btn btn-xs btn-danger">Delete movie</a>
+       </td>
+       <td>
+           <a class="btn btn-danger" th:href="@{/edit/{id}(id=${Item.id})}">Edit movie</a>
+       </td>
+
+
+   </tr></tbody>
+
+</table>
+<a class="btn btn-success" href="/additem">Add Item</a>
+
+</body>
+</html>>
